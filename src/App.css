@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+:root {
+  --main-color: #610051;
+  /* #dc3545; */
+}
+body {
+  font-family: "Raleway", sans-serif;
+  
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bg-theme{
+  background-color: var(--main-color) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+button{
+    background-color: var(--main-color) !important;
+}
+
+#printArea {
+  width: 21cm !important;
+  margin-left: auto;
+  margin-right: auto;
+  /* background: rgb(245, 245, 245); */
+  background: rgb(235, 235, 235);
+
+}
+.list-group-item {
+  background: rgb(235, 235, 235) !important;
+  
+}
+
+i {
+  color: #fff;
+  margin-right: 10px;
+}
+p i {
+  color: #6c757d;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.list-group i {
+  color: #000;
+  text-decoration: underline;
+}
+
+h1 {
+  color: var(--main-color);
+}
+
+h5 {
+  background: var(--main-color);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+p {
+  padding: 10px;
+}
+
+.no-print { display: none; }
+
+@page {
+  size: 7in 13.2in;
+  margin: 27mm 16mm 27mm 16mm;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  #printArea, #printArea * {
+    visibility: visible;
   }
-  to {
-    transform: rotate(360deg);
+
+  #printArea {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
