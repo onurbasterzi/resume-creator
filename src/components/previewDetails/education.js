@@ -1,20 +1,22 @@
-import { Col,ListGroup } from "react-bootstrap";
+import { Col, ListGroup } from "react-bootstrap";
 
-const Education = () => {
+const Education = ({ educations }) => {
   return (
+    educations &&
     <Col xs={12} className="p-2 mb-2 shadow">
       <h5 className="text-light p-2">
-        <i className="bi bi-book"></i> EDUCATION
+        <i className="bi bi-book"></i> {educations.title}
       </h5>
       <ListGroup>
-        <ListGroup.Item>
-          <strong>Anadolu Üniversitesi, Business | Bachelor Degree</strong> <br />
-          <i>May 2012 ESKİŞEHİR, TURKEY</i>
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <strong>Celal Bayar Üniversitesi Mechatronics Engineering | Bachelor Degree</strong> <br />
-          <i> June 2020 Manisa, TURKEY </i>
-        </ListGroup.Item>
+        {educations.educations.map((item) => (
+          <ListGroup.Item key={item.id}>
+            <strong>
+              {item.school}, {item.department} | {item.degree}
+            </strong>
+            <br />
+            <i>{item.graduation}</i>
+          </ListGroup.Item>
+        ))}
       </ListGroup>
     </Col>
   );

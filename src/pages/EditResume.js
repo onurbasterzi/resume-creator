@@ -6,6 +6,9 @@ import { useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
 import FormSummary from "../components/formDetails/formSummary";
 import FormSkills from "../components/formDetails/formSkills";
+import FormExperiences from "../components/formDetails/formExperiences";
+import FormEducation from "../components/formDetails/formEducation";
+import FormCertificate from "../components/formDetails/formCertificates";
 
 const EditResume = () => {
   // const [addHeader, { loading, error }] = useMutation(ADD_HEADER);
@@ -28,13 +31,13 @@ const EditResume = () => {
             <FormSkills skillsData={data.resume_by_pk.Skills} setTab={setKey} cvid={id}/>
           </Tab>
           <Tab eventKey="experience" tabClassName="bg-dark text-light" title="Experiences">
-            asdsddasd
+            <FormExperiences experiencesData={data.resume_by_pk.Experiences} setTab={setKey} cvid={id}/>
           </Tab>
           <Tab eventKey="education" tabClassName="bg-dark text-light" title="Education">
-            asdsddasd
+            <FormEducation educationData={data.resume_by_pk.Education} setTab={setKey} cvid={id} />
           </Tab>
           <Tab eventKey="certificates" tabClassName="bg-dark text-light" title="Certificates">
-            asdsddasd
+            <FormCertificate certificatesData={data.resume_by_pk.Certificates} setTab={setKey} cvid={id}/>
           </Tab>
           <Tab eventKey="languages" tabClassName="bg-dark text-light" title="Languages">
             asdsddasd

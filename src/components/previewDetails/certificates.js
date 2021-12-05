@@ -1,22 +1,25 @@
-import { Col,ListGroup } from "react-bootstrap";
-const Certificates = () => {
-    return ( 
-        <Col xs={12} className="p-2 mb-2 shadow">
-        <h5 className="text-light p-2">
-          <i className="bi bi-patch-check"></i> CERTIFICATES
-        </h5>
-        <ListGroup>
-          <ListGroup.Item>
+import { Col, ListGroup } from "react-bootstrap";
+const Certificates = ({ certificates }) => {
+  return (
+    certificates &&
+    <Col xs={12} className="p-2 mb-2 shadow">
+      <h5 className="text-light p-2">
+        <i className="bi bi-patch-check"></i> CERTIFICATES
+      </h5>
+      <ListGroup>
+        {certificates.certificates.map((item) => (
+          <ListGroup.Item key={item.id}>
             <strong>
-              Bilge Adam | .NET C# & MSSQL SERVER Software and Database Specialization <br />{" "}
+              {item.organization} | {item.courseName} <br />{" "}
             </strong>
             <i>
-              Certificate of Excellence in Software and Database Specialization - <u>September 2010</u>{" "}
+              {item.certification} - <u>{item.certificationDate}</u>{" "}
             </i>
           </ListGroup.Item>
-        </ListGroup>
-      </Col>
-     );
-}
- 
+        ))}
+      </ListGroup>
+    </Col>
+  );
+};
+
 export default Certificates;

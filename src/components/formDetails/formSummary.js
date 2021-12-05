@@ -34,13 +34,13 @@ const FormSummary = ({ summaryData, cvid, setTab }) => {
             <h2 className="text-center">Professional Summary</h2>
             <Col sm={12} lg={8}>
               <Form.Label>Title of the Section</Form.Label>
-              <Form.Control placeholder="Title of the Section" defaultValue={summaryData.title} ref={titleRef} required aria-label="Title of the Section" />
+              <Form.Control placeholder="Title of the Section" defaultValue={summaryData?summaryData.title:''} ref={titleRef} required aria-label="Title of the Section" />
             </Col>
           </Row>
           <Row className="justify-content-center mb-2">
             <Col sm={12} lg={8}>
               <Form.Label>Summary</Form.Label>
-              <Form.Control as="textarea" ref={summaryRef} defaultValue={summaryData.summary} rows={6} />
+              <Form.Control as="textarea" ref={summaryRef} defaultValue={summaryData?summaryData.summary:''} rows={6} />
             </Col>
           </Row>
           <Row className="justify-content-center mb-2">

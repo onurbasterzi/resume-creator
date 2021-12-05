@@ -4,10 +4,13 @@ export const GET_CV = gql`
   query {
     resume {
       id
-      Name
       Header
+      Name
       Summary
       Skills
+      Experiences
+      Education
+      Certificates
       CreatedAt
     }
   }
@@ -16,12 +19,15 @@ export const GET_CV = gql`
 export const GET_CV_BY_ID = gql`
   query ($id: Int!) {
     resume_by_pk(id: $id) {
-      CreatedAt
-      Summary
-      Skills
+      id
       Header
       Name
-      id
+      Summary
+      Skills
+      Experiences
+      Education
+      Certificates
+      CreatedAt
     }
   }
 `;
@@ -29,12 +35,15 @@ export const GET_CV_BY_ID = gql`
 export const ADD_HEADER = gql`
   mutation ( $Name: String) {
     insert_resume_one(object: { Name: $Name }) {
-      Summary
-      Skills
+      id
       Header
       Name
+      Summary
+      Skills
+      Experiences
+      Education
+      Certificates
       CreatedAt
-      id
     }
   }
 `;
@@ -47,6 +56,9 @@ export const UPDATE_HEADER = gql`
       Name
       Summary
       Skills
+      Experiences
+      Education
+      Certificates
       CreatedAt
     }
   }
@@ -61,6 +73,9 @@ export const UPDATE_SUMMARY = gql`
       Name
       Summary
       Skills
+      Experiences
+      Education
+      Certificates
       CreatedAt
     }
   }
@@ -74,6 +89,57 @@ export const UPDATE_SKILLS = gql`
       Name
       Summary
       Skills
+      Experiences
+      Education
+      Certificates
+      CreatedAt
+    }
+  }
+`;
+
+export const UPDATE_EDUCATION = gql`
+  mutation ($id: Int!, $Education: jsonb) {
+    update_resume_by_pk(pk_columns: { id: $id }, _set: { Education: $Education }) {
+      id
+      Header
+      Name
+      Summary
+      Skills
+      Experiences
+      Education
+      Certificates
+      CreatedAt
+    }
+  }
+`;
+
+export const UPDATE_EXPERIENCES = gql`
+  mutation ($id: Int!, $Experiences: jsonb) {
+    update_resume_by_pk(pk_columns: { id: $id }, _set: { Experiences: $Experiences }) {
+      id
+      Header
+      Name
+      Summary
+      Skills
+      Experiences
+      Education
+      Certificates
+      CreatedAt
+    }
+  }
+`;
+
+export const UPDATE_CERTIFICATES = gql`
+  mutation ($id: Int!, $Certificates: jsonb) {
+    update_resume_by_pk(pk_columns: { id: $id }, _set: { Certificates: $Certificates }) {
+      id
+      Header
+      Name
+      Summary
+      Skills
+      Experiences
+      Education
+      Certificates
       CreatedAt
     }
   }
@@ -82,24 +148,17 @@ export const UPDATE_SKILLS = gql`
 export const DELETE_CV = gql`
   mutation ($id: Int!) {
     delete_resume_by_pk(id: $id) {
-      CreatedAt
-      Details
+      id
       Header
       Name
-      id
+      Summary
+      Skills
+      Experiences
+      Education
+      Certificates
+      CreatedAt
     }
   }
 `;
 
-export const UPDATE_USER = gql`
-  mutation ($id: Int!, $phone: String!, $name: String!, $lastname: String!, $email: String!, $date_of_birth: date!) {
-    update_users_by_pk(pk_columns: { id: $id }, _set: { date_of_birth: $date_of_birth, email: $email, lastname: $lastname, name: $name, phone: $phone }) {
-      date_of_birth
-      email
-      lastname
-      name
-      phone
-      id
-    }
-  }
-`;
+

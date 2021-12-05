@@ -9,9 +9,9 @@ const FormSkills = ({ skillsData, cvid, setTab }) => {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    setSkills(skillData.skills);
+    setSkills(skillsData?skillData.skills:[]);
     console.log('skills');
-  }, [skillData.skills]);
+  }, [skillData.skills,skillsData]);
 
   const titleRef = useRef();
   const newSkillRef = useRef();
@@ -50,7 +50,7 @@ const FormSkills = ({ skillsData, cvid, setTab }) => {
             <h2 className="text-center">Skills</h2>
             <Col sm={12} lg={8}>
               <Form.Label>Title of the Section</Form.Label>
-              <Form.Control placeholder="Title of the Section" defaultValue={skillData.title} ref={titleRef} required aria-label="Title of the Section" />
+              <Form.Control placeholder="Title of the Section" defaultValue={skillData.title} ref={titleRef}  aria-label="Title of the Section" />
             </Col>
           </Row>
           <Row className="justify-content-center mb-2">
@@ -65,7 +65,7 @@ const FormSkills = ({ skillsData, cvid, setTab }) => {
             </Col>
             <Col sm={12} lg={8}>
               <ListGroup>
-                {skills.map((item) => (
+                {skills && skills.map((item) => (
                   <ListGroup.Item key={item.id} className="me-2">
                     {item.skill}
                     <Button onClick={() => deleteSkill(item)} className="btn btn-sm btn-danger text-center">

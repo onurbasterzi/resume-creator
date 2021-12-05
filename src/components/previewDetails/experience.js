@@ -1,23 +1,29 @@
-import { ListGroup,Col } from "react-bootstrap";
+import { ListGroup, Col } from "react-bootstrap";
 
-const Experience = () => {
+const Experience = ({ experiences }) => {
+  console.log(experiences);
   return (
+    experiences &&
     <Col xs={12} className="p-2 mb-2 shadow">
       <h5 className="text-light p-2">
-        <i className="bi bi-briefcase"></i> EXPERIENCE
+        <i className="bi bi-briefcase"></i> {experiences.title}
       </h5>
       <ListGroup>
-        <ListGroup.Item>
-          <strong> Full Stack .NET Web Developer | Onur Yazılım ve Tasarım Hizmetleri </strong>
-          <br />
-          <i>July 2011 - June 2014 IZMIR, TURKEY</i> <br />
-          Designed and implemented multi-tier software using ASP.NET MVC, ASP.NET WEB API, SQL Server and SqLite
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <strong>Full Stack .NET Web Developer | Ayda Ajans </strong> <br />
-          <i>June 2014 - June 2020 IZMIR, TURKEY</i> <br />
-          Designed and implemented multi-tier software using ASP.NET MVC,ASP.NET WEB API, Vue.Js (Quasar Framework), SQL Server and SqLite
-        </ListGroup.Item>
+     
+          {experiences.experiences.map((item) => (
+            <ListGroup.Item key={item.id}>
+              <strong>
+                {" "}
+                {item.jobTitle} | {item.company}{" "}
+              </strong>
+              <br />
+              <i>
+                {item.startDate} - {item.endDate} {item.city}, {item.country}
+              </i>{" "}
+              <br />
+              {item.jobDescription}
+            </ListGroup.Item>
+          ))}
       </ListGroup>
     </Col>
   );

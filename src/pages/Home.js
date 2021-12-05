@@ -13,7 +13,7 @@ const Home = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     createResume({
-      variables: { Name: cvTitleRef.current.value, Header: {}, Details: {} },
+      variables: { Name: cvTitleRef.current.value},
       update: (cache, { data: { insert_resume_one } }) => {
         let data = cache.readQuery({ query: GET_CV });
         if (data) {
@@ -50,7 +50,7 @@ const Home = () => {
         </Col>
       </Row>
       <Row className="justify-content-center my-3">
-        {err && <h4 className="text-center text-light">error...</h4>}
+        {err && <h4 className="text-center text-light">{err}</h4>}
         {load && <h4 className="text-center text-light">Loading...</h4>}
         {data && data.resume.map((item) => <CvCard key={item.id} data={item} />)}
       </Row>

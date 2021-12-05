@@ -26,9 +26,9 @@ const Preview = () => {
               <Col xs={11}>
                 <Summary summary={data.resume_by_pk.Summary} />
                 <Skills skills={data.resume_by_pk.Skills} />
-                <Experience />
-                <Education />
-                <Certificates />
+                <Experience experiences={data.resume_by_pk.Experiences} />
+                <Education educations={data.resume_by_pk.Education} />
+                <Certificates certificates={data.resume_by_pk.Certificates} />
                 <Languages />
               </Col>
             </Row>

@@ -4,6 +4,7 @@ const CvHeader = ({ header }) => {
   // const header=data.resume[0].Header
    
   return (
+    header &&
     <Row className="row justify-content-start">
       <Col xs={9} >
         <h1>{header.name}</h1>
