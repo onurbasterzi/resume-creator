@@ -12,9 +12,9 @@ body {
   background-color: var(--main-color) !important;
 }
 
-button{
+/* button{
     background-color: var(--main-color) !important;
-}
+} */
 
 #printArea {
   width: 21cm !important;
@@ -63,8 +63,9 @@ p {
 .no-print { display: none; }
 
 @page {
-  size: 7in 13.2in;
-  margin: 27mm 16mm 27mm 16mm;
+  size: 178mm 247mm;
+  /* size:210mm 297mm; */
+  margin: 0;
 }
 
 @media print {

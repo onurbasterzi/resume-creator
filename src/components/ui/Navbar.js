@@ -3,14 +3,18 @@ import {Link} from 'react-router-dom'
 
 const NavigationBar = () => {
   return (
-    <Navbar bg="light" variant="light" className="mb-2">
+    <Navbar bg="light" variant="light" expand="md" className="mb-2">
       <Container>
         <Navbar.Brand as={Link} to="/">RESUME CREATOR</Navbar.Brand>
+        <Navbar.Toggle className="bg-light" aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link as={Link} to="/">Home</Nav.Link>
           <Nav.Link  as={Link} to="/Preview">Preview</Nav.Link>
           <Nav.Link  as={Link} to="/new">Create Resume</Nav.Link>
+          <Nav.Link  as={Link} to="/test">Test</Nav.Link>
         </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

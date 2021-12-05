@@ -6,7 +6,8 @@ import NavigationBar from './components/ui/Navbar'
 
 import Home from "./pages/Home";
 import Preview from "./pages/Preview";
-import NewResume from "./pages/NewResume";
+import EditResume from "./pages/EditResume";
+import Test from "./pages/Test";
 
 function App() {
   return (
@@ -17,11 +18,14 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/new">
-            <NewResume />
+          <Route exact path="/edit/:id">
+            <EditResume />
+          </Route>
+          <Route exact path="/test">
+            <Test />
           </Route>
           
-          <Route exact path="/preview">
+          <Route exact path="/preview/:id">
             <Preview />
           </Route>
         </Switch>
