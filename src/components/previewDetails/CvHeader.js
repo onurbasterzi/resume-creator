@@ -1,13 +1,13 @@
 import { Row, Col } from "react-bootstrap";
 
-const CvHeader = ({ header }) => {
+const CvHeader = ({ header,theme }) => {
   // const header=data.resume[0].Header
    
   return (
     header &&
     <Row className="row justify-content-start">
       <Col xs={9} >
-        <h1>{header.name}</h1>
+        <h1 className={theme[1]} >{header.name}</h1>
         <h4>{header.jobTitle}</h4>
         <p className="text-muted">
           {header.address} <br />

@@ -9,6 +9,7 @@ import FormSkills from "../components/formDetails/formSkills";
 import FormExperiences from "../components/formDetails/formExperiences";
 import FormEducation from "../components/formDetails/formEducation";
 import FormCertificate from "../components/formDetails/formCertificates";
+import FormLanguages from "../components/formDetails/formLanguages";
 
 const EditResume = () => {
   // const [addHeader, { loading, error }] = useMutation(ADD_HEADER);
@@ -40,7 +41,7 @@ const EditResume = () => {
             <FormCertificate certificatesData={data.resume_by_pk.Certificates} setTab={setKey} cvid={id}/>
           </Tab>
           <Tab eventKey="languages" tabClassName="bg-dark text-light" title="Languages">
-            asdsddasd
+            <FormLanguages languagesData={data.resume_by_pk.Languages} setTab={setKey} cvid={id}/>
           </Tab>
         </Tabs>
       )}

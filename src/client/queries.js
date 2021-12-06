@@ -11,6 +11,7 @@ export const GET_CV = gql`
       Experiences
       Education
       Certificates
+      Languages
       CreatedAt
     }
   }
@@ -27,6 +28,7 @@ export const GET_CV_BY_ID = gql`
       Experiences
       Education
       Certificates
+      Languages
       CreatedAt
     }
   }
@@ -43,6 +45,7 @@ export const ADD_HEADER = gql`
       Experiences
       Education
       Certificates
+      Languages
       CreatedAt
     }
   }
@@ -59,6 +62,7 @@ export const UPDATE_HEADER = gql`
       Experiences
       Education
       Certificates
+      Languages
       CreatedAt
     }
   }
@@ -76,6 +80,7 @@ export const UPDATE_SUMMARY = gql`
       Experiences
       Education
       Certificates
+      Languages
       CreatedAt
     }
   }
@@ -92,6 +97,7 @@ export const UPDATE_SKILLS = gql`
       Experiences
       Education
       Certificates
+      Languages
       CreatedAt
     }
   }
@@ -108,6 +114,7 @@ export const UPDATE_EDUCATION = gql`
       Experiences
       Education
       Certificates
+      Languages
       CreatedAt
     }
   }
@@ -124,6 +131,7 @@ export const UPDATE_EXPERIENCES = gql`
       Experiences
       Education
       Certificates
+      Languages
       CreatedAt
     }
   }
@@ -140,6 +148,24 @@ export const UPDATE_CERTIFICATES = gql`
       Experiences
       Education
       Certificates
+      Languages
+      CreatedAt
+    }
+  }
+`;
+
+export const UPDATE_LANGUAGES = gql`
+  mutation ($id: Int!, $Languages: jsonb) {
+    update_resume_by_pk(pk_columns: { id: $id }, _set: { Languages: $Languages }) {
+      id
+      Header
+      Name
+      Summary
+      Skills
+      Experiences
+      Education
+      Certificates
+      Languages
       CreatedAt
     }
   }

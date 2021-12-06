@@ -1,13 +1,25 @@
 import { Col, Container, Row, InputGroup, FormControl, Button, Form } from "react-bootstrap";
 import CvCard from "../components/ui/CvCard";
 import { useMutation, useQuery } from "@apollo/client";
-import { ADD_HEADER, GET_CV } from "../client/queries";
+import { ADD_HEADER, GET_CV ,DELETE_CV} from "../client/queries";
 import { useRef } from "react";
 
 const Home = () => {
   const [createResume, { loading }] = useMutation(ADD_HEADER);
   const { data, loading: load, error: err } = useQuery(GET_CV);
-  ;
+  const [deleteResume, { loading:deleteLoading, error:deleteError }] = useMutation(DELETE_CV);
+  
+  
+  const deleteHandler = (id) => {
+    deleteResume({
+      variables: { id: id },
+      update: (cache) => {
+        let data = cache.readQuery({ query: GET_CV });
+        data = data.resume.filter((item) => item.id !== id);
+        cache.writeQuery({ query: GET_CV, data: { resume: data } });
+      },
+    });
+  };
 
   const cvTitleRef = useRef();
   const submitHandler = (event) => {
@@ -52,7 +64,7 @@ const Home = () => {
       <Row className="justify-content-center my-3">
         {err && <h4 className="text-center text-light">{err}</h4>}
         {load && <h4 className="text-center text-light">Loading...</h4>}
-        {data && data.resume.map((item) => <CvCard key={item.id} data={item} />)}
+        {data && data.resume.map((item) => <CvCard key={item.id} deleteHandler={deleteHandler} data={item} />)}
       </Row>
     </Container>
   );

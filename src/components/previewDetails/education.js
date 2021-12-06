@@ -1,10 +1,10 @@
 import { Col, ListGroup } from "react-bootstrap";
 
-const Education = ({ educations }) => {
+const Education = ({ educations,theme }) => {
   return (
     educations &&
     <Col xs={12} className="p-2 mb-2 shadow">
-      <h5 className="text-light p-2">
+       <h5 className={`text-light p-2 ${theme[0]}`}>
         <i className="bi bi-book"></i> {educations.title}
       </h5>
       <ListGroup>
